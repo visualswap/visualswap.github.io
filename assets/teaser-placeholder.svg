@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720" role="img" aria-labelledby="title desc">
+  <title id="title">Research teaser placeholder</title>
+  <desc id="desc">A clean abstract placeholder showing paired inputs, model blocks, and outputs for a paper website teaser.</desc>
+  <rect width="1440" height="720" fill="#f7f9fb"/>
+  <rect x="64" y="64" width="1312" height="592" rx="28" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+  <g transform="translate(126 132)">
+    <rect width="285" height="360" rx="18" fill="#ecfdf5" stroke="#8dd7b5" stroke-width="2"/>
+    <rect x="28" y="30" width="229" height="164" rx="14" fill="#ffffff" stroke="#9fdcc1" stroke-width="2"/>
+    <path d="M56 168 C94 112, 137 127, 174 83 C202 51, 231 63, 243 34 L257 194 H28 Z" fill="#4fb286" opacity="0.85"/>
+    <circle cx="90" cy="76" r="24" fill="#f2c94c"/>
+    <rect x="28" y="226" width="229" height="24" rx="12" fill="#c6f0dc"/>
+    <rect x="28" y="270" width="178" height="24" rx="12" fill="#d9f6e8"/>
+    <text x="142" y="330" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#1b4332">Input A</text>
+  </g>
+  <g transform="translate(514 132)">
+    <rect width="412" height="360" rx="18" fill="#eef4ff" stroke="#a9c4f5" stroke-width="2"/>
+    <rect x="55" y="58" width="302" height="58" rx="15" fill="#ffffff" stroke="#b9cdf2" stroke-width="2"/>
+    <rect x="55" y="150" width="302" height="58" rx="15" fill="#ffffff" stroke="#b9cdf2" stroke-width="2"/>
+    <rect x="55" y="242" width="302" height="58" rx="15" fill="#ffffff" stroke="#b9cdf2" stroke-width="2"/>
+    <path d="M206 116 V150 M206 208 V242" stroke="#4878c8" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="102" cy="87" r="16" fill="#4878c8"/>
+    <circle cx="206" cy="87" r="16" fill="#46a97d"/>
+    <circle cx="310" cy="87" r="16" fill="#e9775f"/>
+    <circle cx="102" cy="179" r="16" fill="#46a97d"/>
+    <circle cx="206" cy="179" r="16" fill="#e9775f"/>
+    <circle cx="310" cy="179" r="16" fill="#4878c8"/>
+    <circle cx="102" cy="271" r="16" fill="#e9775f"/>
+    <circle cx="206" cy="271" r="16" fill="#4878c8"/>
+    <circle cx="310" cy="271" r="16" fill="#46a97d"/>
+    <text x="206" y="330" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#23395d">Proposed Method</text>
+  </g>
+  <g transform="translate(1029 132)">
+    <rect width="285" height="360" rx="18" fill="#fff5f1" stroke="#f2b59e" stroke-width="2"/>
+    <rect x="28" y="30" width="229" height="164" rx="14" fill="#ffffff" stroke="#f3c0ae" stroke-width="2"/>
+    <path d="M42 160 C77 125, 99 137, 129 97 C164 50, 205 69, 240 39 L257 194 H28 Z" fill="#e9775f" opacity="0.85"/>
+    <path d="M28 194 C68 142, 114 158, 154 109 C190 66, 223 75, 257 43" fill="none" stroke="#245f73" stroke-width="8" stroke-linecap="round"/>
+    <rect x="28" y="226" width="229" height="24" rx="12" fill="#ffd8cb"/>
+    <rect x="28" y="270" width="178" height="24" rx="12" fill="#ffe8df"/>
+    <text x="142" y="330" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#7f351f">Output</text>
+  </g>
+  <path d="M434 312 H488" stroke="#667085" stroke-width="8" stroke-linecap="round"/>
+  <path d="M474 292 L496 312 L474 332" fill="none" stroke="#667085" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M949 312 H1003" stroke="#667085" stroke-width="8" stroke-linecap="round"/>
+  <path d="M989 292 L1011 312 L989 332" fill="none" stroke="#667085" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="720" y="574" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#101828">Replace this teaser with your main result figure</text>
+  <text x="720" y="620" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#52616f">Use a single image that communicates the task, method, and strongest qualitative outcome.</text>
+</svg>
