@@ -1,214 +1,369 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paper Title | Project Page</title>
-    <meta
-      name="description"
-      content="Project page for a computer science research paper. Replace this description with a one-sentence summary of the paper."
-    >
-    <meta property="og:title" content="Paper Title | Project Page">
-    <meta
-      property="og:description"
-      content="Replace this with the main claim or contribution of the paper."
-    >
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/teaser-placeholder.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#">Paper Project</a>
-        <div class="nav-links">
-          <a href="#abstract">Abstract</a>
-          <a href="#method">Method</a>
-          <a href="#results">Results</a>
-          <a href="#demo">Demo</a>
-          <a href="#citation">Citation</a>
-        </div>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Are VLMs Seeing or Just Saying? | VisualSwap</title>
+  <meta name="description"
+    content="VisualSwap: A diagnostic framework for probing whether Vision-Language Models genuinely re-examine visual input during self-reflection, or merely produce learned textual patterns.">
+  <meta property="og:title" content="Are VLMs Seeing or Just Saying? Uncovering the Illusion of Visual Re-examination">
+  <meta property="og:description"
+    content="When VLMs say 'let me check the figure again', do they actually look? We introduce VisualSwap and VS-Bench to probe this, revealing a striking failure: models miss image swaps with accuracy dropping up to 60%.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/teaser-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <main id="main">
-      <section class="hero section-shell">
-        <div class="paper-kicker">Conference / Journal / arXiv 2026</div>
-        <h1>Paper Title Goes Here: A Concise Subtitle for the Main Contribution</h1>
-        <p class="paper-summary">
-          Replace this sentence with the clearest one-line claim of the paper. It should tell readers
-          what problem you solve, what makes the approach different, and why the result matters.
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#">VisualSwap</a>
+      <div class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#demo">Cases</a>
+        <a href="#citation">Citation</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell">
+      <div class="paper-kicker">ICML 2026 &middot; Seoul, South Korea</div>
+      <h1>Are VLMs Seeing or Just Saying? Uncovering the Illusion of Visual Re-examination</h1>
+      <p class="paper-summary">
+        Vision-Language Models often claim to "check the figure again" during reasoning. Through our
+        VisualSwap framework, we reveal that these reflective statements are largely illusory: models
+        fail to detect image swaps with accuracy dropping by up to 60%, and thinking models are nearly
+        3&times; more vulnerable than their instructed counterparts.
+      </p>
+
+      <ul class="authors" aria-label="Authors">
+        <li><a href="#">Chufan Shi</a><sup>1,*</sup></li>
+        <li><a href="#">Cheng Yang</a><sup>2,*</sup></li>
+        <li><a href="#">Yaokang Wu</a><sup>3</sup></li>
+        <li><a href="#">Linhao Jin</a><sup>1</sup></li>
+        <li><a href="#">Bo Shui</a><sup>4</sup></li>
+        <li><a href="#">Taylor Berg-Kirkpatrick</a><sup>2</sup></li>
+        <li><a href="#">Xuezhe Ma</a><sup>1</sup></li>
+      </ul>
+
+      <p class="affiliations">
+        <sup>1</sup>University of Southern California &nbsp;&nbsp;
+        <sup>2</sup>University of California San Diego &nbsp;&nbsp;
+        <sup>3</sup>Carnegie Mellon University &nbsp;&nbsp;
+        <sup>4</sup>University of Illinois Urbana-Champaign
+        <br>
+        <span style="font-size: 0.9em;"><sup>*</sup>Equal contribution</span>
+      </p>
+
+      <div class="resource-actions" aria-label="Paper resources">
+        <a class="action-button primary" href="#" aria-label="Open paper PDF">
+          <span class="button-icon" aria-hidden="true">PDF</span>
+          Paper
+        </a>
+        <a class="action-button" href="#" aria-label="Open arXiv page">
+          <span class="button-icon" aria-hidden="true">arXiv</span>
+          arXiv
+        </a>
+        <a class="action-button" href="#" aria-label="Open GitHub repository">
+          <span class="button-icon" aria-hidden="true">&lt;/&gt;</span>
+          Code
+        </a>
+        <a class="action-button" href="https://visualswap.github.io/" aria-label="Open project page">
+          <span class="button-icon" aria-hidden="true">Web</span>
+          Project Page
+        </a>
+      </div>
+
+      <figure class="teaser">
+        <img src="assets/illustrative_figure.png"
+          alt="VisualSwap teaser: given an image and query, a VLM generates reasoning with a self-reflective trigger. The image is then swapped to a visually similar but semantically distinct image. Despite saying it will re-examine, the model fails to detect the change and produces an incorrect answer.">
+        <figcaption>
+          <strong>The illusion of visual re-examination.</strong> Given image <em>I<sub>a</sub></em> and query
+          <em>Q</em>, the VLM generates a reasoning chain ending with a self-reflective trigger ("Wait, let me
+          check the figure again"). When the image is swapped to <em>I<sub>b</sub></em>, the model fails to
+          detect the visual discrepancy and produces an incorrect answer anchored in the stale context of
+          <em>I<sub>a</sub></em>. Only a model with genuine visual grounding would re-attend and arrive at
+          the correct answer.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="abstract" class="section-shell content-grid">
+      <div>
+        <p class="section-label">Overview</p>
+        <h2>Abstract</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Vision-Language Models (VLMs) often produce self-reflective statements like "let me check the
+          figure again" during reasoning. Do such statements trigger genuine visual re-examination, or are
+          they merely learned textual patterns? We investigate this via <strong>VisualSwap</strong>, an
+          image-swap probing framework: after a model reasons over an image, we replace it with a visually
+          similar but semantically different one and test whether the model notices. We introduce
+          <strong>VS-Bench</strong>, 800 image pairs curated from MathVista, MathVerse, MathVision, and
+          MMMU-Pro. Experiments on Qwen3-VL, Kimi-VL, and ERNIE-VL reveal a striking failure: models
+          overwhelmingly miss the swap, with accuracy dropping by up to 60%. Counterintuitively, thinking
+          models are nearly 3&times; more vulnerable than their instructed counterparts, and scaling offers
+          no mitigation. Multi-turn user instructions restore visual grounding, but self-generated
+          reflective statements during continuous generation do not. Attention analysis explains why: user
+          instructions substantially elevate attention to visual tokens, whereas self-reflection does not.
+          Current VLMs tend to <em>say</em> rather than actually <em>see</em> when claiming visual
+          re-examination.
         </p>
-
-        <ul class="authors" aria-label="Authors">
-          <li><a href="#">First Author</a><sup>1</sup></li>
-          <li><a href="#">Second Author</a><sup>1,2</sup></li>
-          <li><a href="#">Third Author</a><sup>2</sup></li>
-          <li><a href="#">Senior Author</a><sup>1</sup></li>
-        </ul>
-
-        <p class="affiliations">
-          <sup>1</sup>Institution One &nbsp;&nbsp; <sup>2</sup>Institution Two
-        </p>
-
-        <div class="resource-actions" aria-label="Paper resources">
-          <a class="action-button primary" href="#" aria-label="Open paper PDF">
-            <span class="button-icon" aria-hidden="true">PDF</span>
-            Paper
-          </a>
-          <a class="action-button" href="#" aria-label="Open arXiv page">
-            <span class="button-icon" aria-hidden="true">arXiv</span>
-            arXiv
-          </a>
-          <a class="action-button" href="#" aria-label="Open GitHub repository">
-            <span class="button-icon" aria-hidden="true">&lt;/&gt;</span>
-            Code
-          </a>
-          <a class="action-button" href="#" aria-label="Open online demo">
-            <span class="button-icon" aria-hidden="true">Play</span>
-            Demo
-          </a>
+        <div class="highlights" aria-label="Key contributions">
+          <article>
+            <h3>VisualSwap &amp; VS-Bench</h3>
+            <p>A diagnostic framework and a benchmark of 800 carefully curated image pairs that directly
+              test whether self-reflective statements trigger genuine visual grounding.</p>
+          </article>
+          <article>
+            <h3>A Severe Failure Mode</h3>
+            <p>Across 15 VLMs, accuracy drops by up to 60% under image swap. Thinking models exhibit
+              nearly 3&times; greater vulnerability than instruct counterparts, and scaling does not help.</p>
+          </article>
+          <article>
+            <h3>Mechanistic Explanation</h3>
+            <p>Attention analysis shows self-reflective statements elicit insufficient visual attention,
+              while multi-turn user instructions restore grounding to near-baseline levels.</p>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <figure class="teaser">
-          <img src="assets/teaser-placeholder.svg" alt="Placeholder teaser summarizing the paper task, method, and output">
-          <figcaption>
-            Replace this teaser and caption with your central figure. A strong project page usually makes the
-            task and main result understandable before readers reach the abstract.
-          </figcaption>
+    <section id="method" class="section-shell content-grid">
+      <div>
+        <p class="section-label">Approach</p>
+        <h2>Method</h2>
+      </div>
+      <div class="method-flow" aria-label="Method overview">
+        <article>
+          <span class="step-number">01</span>
+          <h3>Stage 1: Standard Inference</h3>
+          <p>Given the original image <em>I<sub>a</sub></em> and question <em>Q</em>, the VLM generates a
+            reasoning chain <em>R<sub>a</sub></em> through standard inference, grounded in the visual content
+            of <em>I<sub>a</sub></em>.</p>
+        </article>
+        <article>
+          <span class="step-number">02</span>
+          <h3>Stage 2: Re-examination Probe</h3>
+          <p>We append a reflection prompt (e.g., "Wait, let me check the figure again") to
+            <em>R<sub>a</sub></em>, while simultaneously replacing <em>I<sub>a</sub></em> with a visually
+            similar but semantically distinct image <em>I<sub>b</sub></em>. The model continues generation
+            from this point.
+          </p>
+        </article>
+        <article>
+          <span class="step-number">03</span>
+          <h3>Diagnostic Metric</h3>
+          <p>We measure Performance Degradation &Delta; = Acc<sub>base</sub> &minus; Acc<sub>probe</sub>.
+            Large &Delta; reveals that the model anchors to prior text rather than re-attending to the
+            current visual evidence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="results" class="section-shell">
+      <div class="section-heading">
+        <p class="section-label">Evidence</p>
+        <h2>Results</h2>
+        <p>
+          Across 15 models spanning Qwen3-VL, Qwen2.5-VL, Kimi-VL, and ERNIE-VL families, VisualSwap exposes
+          a consistent failure: models say they re-examine, but they don't. The strongest models suffer the
+          largest drops, and explicit multi-turn user instructions are the only intervention that reliably
+          restores grounding.
+        </p>
+      </div>
+      <div class="results-grid">
+        <figure>
+          <img src="assets/main_results.jpg"
+            alt="Main results table showing performance drops across 15 VLMs on VS-Bench">
+          <figcaption><strong>Catastrophic drops under VisualSwap.</strong> ERNIE-4.5-VL-Thinking plummets
+            from 79.9% to 19.6% (&Delta; = 60.3%). Qwen3-VL-235B-A22B-Thinking drops from 88.8% to 34.1%.
+            Thinking variants consistently degrade ~3&times; more than Instruct counterparts.</figcaption>
         </figure>
-      </section>
+        <figure>
+          <img src="assets/attention_analysis.jpg"
+            alt="Attention analysis showing visual attention during probe versus multi-turn settings">
+          <figcaption><strong>Attention analysis explains the gap.</strong> Self-reflective statements elicit
+            negligible attention shifts to image tokens during decoding, while explicit multi-turn user
+            instructions trigger a substantial surge in visual attention &mdash; under identical
+            context.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/length.jpg" alt="Context length ablation showing monotonic accuracy decline">
+          <figcaption><strong>Reasoning length amplifies the illusion.</strong> As more reasoning context
+            is retained before the swap, probe accuracy declines monotonically. The longer the chain of
+            thought, the more decoupled the model becomes from visual evidence.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/multi-turn.jpg" alt="Multi-turn intervention versus probe setting recovery">
+          <figcaption><strong>Multi-turn intervention restores grounding.</strong> Qwen3-VL-235B-A22B-Thinking
+            rebounds from 34.1% (Probe) to 85.4% (Multi-turn), nearly matching its 88.8% baseline. The visual
+            capability is intact; what fails is autonomous attentional control.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <section id="abstract" class="section-shell content-grid">
-        <div>
-          <p class="section-label">Overview</p>
-          <h2>Abstract</h2>
-        </div>
-        <div class="prose">
-          <p>
-            Paste the paper abstract here. Keep the website version identical to the paper when possible,
-            then use the surrounding sections to make the contribution easier to scan. This paragraph is a
-            placeholder for the problem statement, method, experiments, and conclusion.
-          </p>
-          <div class="highlights" aria-label="Key contributions">
-            <article>
-              <h3>Contribution 1</h3>
-              <p>Summarize the core technical idea in one short sentence.</p>
-            </article>
-            <article>
-              <h3>Contribution 2</h3>
-              <p>State the main empirical result, benchmark improvement, or qualitative capability.</p>
-            </article>
-            <article>
-              <h3>Contribution 3</h3>
-              <p>Point readers to the released dataset, model, code, or demo when available.</p>
-            </article>
+    <section id="demo" class="section-shell">
+      <div class="section-heading">
+        <p class="section-label">Media</p>
+        <h2>Case Studies</h2>
+        <p>
+          Representative examples across four domains &mdash; Geometry, Chart Understanding, Synthetic
+          Scene VQA, and Function Plots &mdash; illustrating both the dominant failure mode (textual
+          inertia) and cases of genuine visual re-grounding. Use the arrows, dots, or &larr;/&rarr; keys
+          to browse; click any figure to enlarge.
+        </p>
+      </div>
+
+      <div class="carousel" data-carousel tabindex="0" aria-roledescription="carousel" aria-label="Case study examples">
+        <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Previous case">
+          <span aria-hidden="true">&#8249;</span>
+        </button>
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-carousel-track>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-error">Failure &middot; Geometry</span>
+              <img src="assets/error_case_1.png"
+                alt="Error case: geometry angle problem where the model ignores the swapped 50-degree figure">
+              <figcaption><strong>Textual inertia in geometry.</strong> The model computes an angle from a
+                60&deg; input in <em>I<sub>a</sub></em>. After the transparent swap to a 50&deg; figure, it
+                ignores the pixel-level evidence and hallucinates the original value (180&deg; &minus;
+                60&deg;) to stay consistent with its prior derivation.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-error">Failure &middot; Chart Understanding</span>
+              <img src="assets/error_case_2.png"
+                alt="Error case: bar chart where the model misses that the Burlywood bar became the minimum">
+              <figcaption><strong>Stale measurements in a bar chart.</strong> The &ldquo;Burlywood&rdquo;
+                bar is shortened to become the new minimum, but the model never notices. It reuses bar
+                lengths extracted before the swap, hallucinating them to justify an incorrect
+                &ldquo;No&rdquo;.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-error">Failure &middot; Synthetic Scene VQA</span>
+              <img src="assets/error_case_3.png"
+                alt="Error case: counting task where the model keeps counting an absent purple cube">
+              <figcaption><strong>Anchored object inventory.</strong> In a counting task, the purple cube
+                of <em>I<sub>a</sub></em> is replaced by a cyan one in <em>I<sub>b</sub></em>. The model
+                keeps subtracting the now-absent purple cube &mdash; reasoning from the memory of
+                <em>I<sub>a</sub></em> rather than the current image.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-error">Failure &middot; Function Plots</span>
+              <img src="assets/error_case_4.png"
+                alt="Error case: function plot where the model misses that Soft overtakes Dense">
+              <figcaption><strong>Linguistic-only reflection.</strong> The curves are altered so
+                &ldquo;Soft&rdquo; overtakes &ldquo;Dense&rdquo;. Despite the visible crossover, the model
+                restates the textual conclusion from <em>R<sub>a</sub></em>, confirming the
+                re-examination was merely linguistic.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-good">Success &middot; Geometry</span>
+              <img src="assets/good_case_1.png"
+                alt="Success case: geometry problem where the model correctly reads the swapped 50-degree angle">
+              <figcaption><strong>Breaking textual inertia.</strong> The model explicitly identifies the
+                new 50&deg; angle in <em>I<sub>b</sub></em>, distinguishes it from the 60&deg; in its
+                history, and correctly re-derives the supplementary angle as 130&deg;.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-good">Success &middot; Chart Understanding</span>
+              <img src="assets/good_case_2.png"
+                alt="Success case: bar chart where the model detects the shortened Black bar">
+              <figcaption><strong>Genuine visual update.</strong> The model perceives that the
+                &ldquo;Black&rdquo; bar &mdash; previously the longest &mdash; has been shortened, updates
+                its comparison logic, and reverses its conclusion to &ldquo;no&rdquo;.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-good">Success &middot; Synthetic Scene VQA</span>
+              <img src="assets/good_case_3.png"
+                alt="Success case: counting task where the model detects the red sphere was replaced by green">
+              <figcaption><strong>Re-grounded arithmetic.</strong> The model detects that the red sphere
+                was replaced by a green one, subtracts zero red items instead of one, and arrives at the
+                correct count of 6.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <span class="case-badge case-badge-good">Success &middot; Function Plots</span>
+              <img src="assets/good_case_4.png"
+                alt="Success case: function plot where the model adapts from a parabola to an absolute-value function">
+              <figcaption><strong>Dramatic visual correction.</strong> The model transitions from a
+                parabola (<em>x</em><sup>2</sup>) in <em>I<sub>a</sub></em> to an absolute-value function
+                (|2<em>x</em>&minus;3|+1) in <em>I<sub>b</sub></em>, abandons the derivative comparison,
+                and identifies the constant, equal slopes of the V-shaped graph.</figcaption>
+            </figure>
           </div>
         </div>
-      </section>
 
-      <section id="method" class="section-shell content-grid">
-        <div>
-          <p class="section-label">Approach</p>
-          <h2>Method</h2>
-        </div>
-        <div class="method-flow" aria-label="Method overview">
-          <article>
-            <span class="step-number">01</span>
-            <h3>Input and Task</h3>
-            <p>Define the input data, target output, supervision, and assumptions.</p>
-          </article>
-          <article>
-            <span class="step-number">02</span>
-            <h3>Model or Algorithm</h3>
-            <p>Describe the new module, optimization objective, pipeline, or inference procedure.</p>
-          </article>
-          <article>
-            <span class="step-number">03</span>
-            <h3>Output and Use</h3>
-            <p>Explain how the method is applied and what readers should expect from the result.</p>
-          </article>
-        </div>
-      </section>
+        <button class="carousel-arrow" type="button" data-carousel-next aria-label="Next case">
+          <span aria-hidden="true">&#8250;</span>
+        </button>
+      </div>
 
-      <section id="results" class="section-shell">
-        <div class="section-heading">
-          <p class="section-label">Evidence</p>
-          <h2>Results</h2>
-          <p>
-            Add qualitative comparisons, quantitative tables, ablations, and failure cases. Replace each
-            placeholder image with a figure exported from the paper or supplementary material.
-          </p>
-        </div>
-        <div class="results-grid">
-          <figure>
-            <img src="assets/result-placeholder.svg" alt="Placeholder result figure">
-            <figcaption><strong>Qualitative comparison.</strong> Briefly describe the setting and takeaway.</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/result-placeholder.svg" alt="Placeholder ablation figure">
-            <figcaption><strong>Ablation study.</strong> Highlight the component or design choice being tested.</figcaption>
-          </figure>
-        </div>
-      </section>
+      <div class="carousel-controls">
+        <div class="carousel-dots" data-carousel-dots aria-label="Choose a case"></div>
+        <p class="carousel-counter" data-carousel-counter aria-live="polite"></p>
+      </div>
 
-      <section id="demo" class="section-shell content-grid">
-        <div>
-          <p class="section-label">Media</p>
-          <h2>Video and Demo</h2>
-        </div>
-        <div class="media-panel">
-          <div class="video-placeholder" role="img" aria-label="Video placeholder">
-            <span>Video / Interactive Demo Placeholder</span>
-          </div>
-          <p>
-            Embed a YouTube/Vimeo iframe, WebGL demo, or short hosted video here. Keep the first frame
-            informative so readers understand the interaction before pressing play.
-          </p>
-          <div class="resource-list">
-            <a href="#">Dataset</a>
-            <a href="#">Model Weights</a>
-            <a href="#">Supplementary</a>
-          </div>
-        </div>
-      </section>
+      <div class="resource-list carousel-resources">
+        <a href="#">VS-Bench Dataset</a>
+        <a href="#">Evaluation Code</a>
+        <a href="#">Supplementary Material</a>
+      </div>
+    </section>
 
-      <section id="citation" class="section-shell content-grid">
-        <div>
-          <p class="section-label">Reference</p>
-          <h2>Citation</h2>
-        </div>
-        <div class="citation-box">
-          <button class="copy-button" type="button" data-copy-target="bibtex">Copy BibTeX</button>
-          <pre id="bibtex"><code>@inproceedings{yourpaper2026,
-  title     = {Paper Title Goes Here},
-  author    = {First Author and Second Author and Third Author and Senior Author},
-  booktitle = {Conference or Journal Name},
+    <section id="citation" class="section-shell content-grid">
+      <div>
+        <p class="section-label">Reference</p>
+        <h2>Citation</h2>
+      </div>
+      <div class="citation-box">
+        <button class="copy-button" type="button" data-copy-target="bibtex">Copy BibTeX</button>
+        <pre id="bibtex"><code>@inproceedings{shi2026visualswap,
+  title     = {Are {VLMs} Seeing or Just Saying? Uncovering the Illusion of Visual Re-examination},
+  author    = {Shi, Chufan and Yang, Cheng and Wu, Yaokang and Jin, Linhao
+               and Shui, Bo and Berg-Kirkpatrick, Taylor and Ma, Xuezhe},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning (ICML)},
   year      = {2026}
 }</code></pre>
-          <p class="copy-status" aria-live="polite"></p>
-        </div>
-      </section>
+        <p class="copy-status" aria-live="polite"></p>
+      </div>
+    </section>
 
-      <section class="section-shell content-grid acknowledgements">
-        <div>
-          <p class="section-label">Notes</p>
-          <h2>Acknowledgements</h2>
-        </div>
-        <p>
-          Add funding, collaborator, dataset, compute, and template acknowledgements here. Remove this
-          section if it is not needed.
-        </p>
-      </section>
-    </main>
+    <section class="section-shell content-grid acknowledgements">
+      <div>
+        <p class="section-label">Notes</p>
+        <h2>Acknowledgements</h2>
+      </div>
+      <p>
+        This work is funded in part by the Schmidt Foundation and by the National Science Foundation under
+        grant 2146151. We thank the authors of MathVista, MathVerse, MathVision, and MMMU-Pro for releasing
+        the benchmarks that VS-Bench builds upon, and the open-source teams behind Qwen3-VL, Qwen2.5-VL,
+        Kimi-VL, and ERNIE-4.5-VL for making this analysis possible.
+      </p>
+    </section>
+  </main>
 
-    <footer class="footer">
-      <p>Replace placeholders with final paper content before submission or public release.</p>
-    </footer>
+  <footer class="footer">
+    <p>&copy; 2026 VisualSwap project. Please contact chufansh@usc.edu or xuezhema@usc.edu for inquiries.</p>
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <div class="lightbox" data-lightbox aria-hidden="true">
+    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close enlarged view">
+      &times;
+    </button>
+    <img src="" alt="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
