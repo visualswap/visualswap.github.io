@@ -128,6 +128,20 @@ a:hover {
   text-transform: uppercase;
 }
 
+.spotlight-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
 h1,
 h2,
 h3,
@@ -346,6 +360,105 @@ figcaption {
 
 .results-grid figure {
   margin: 0;
+}
+
+/* Result tables */
+.table-block {
+  margin: 0;
+}
+
+.table-caption {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  -webkit-overflow-scrolling: touch;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-table th,
+.results-table td {
+  padding: 9px 11px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.results-table thead th {
+  background: #eef2f7;
+  color: var(--ink);
+  font-weight: 760;
+}
+
+.results-table thead tr:first-child th {
+  border-bottom: 1px solid var(--line);
+}
+
+.results-table thead tr:last-child th {
+  border-bottom: 2px solid #c4d0dd;
+}
+
+.results-table tbody td,
+.results-table tbody th {
+  border-top: 1px solid var(--line);
+}
+
+.results-table tbody tr.model-start td,
+.results-table tbody tr.model-start th {
+  border-top: 2px solid #c4d0dd;
+}
+
+.results-table .model-name {
+  text-align: left;
+  color: var(--ink);
+  font-weight: 720;
+  vertical-align: middle;
+}
+
+.results-table .variant {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.results-table .sep {
+  border-left: 2px solid #c4d0dd;
+}
+
+.results-table .gd {
+  border-right: 1px solid var(--line);
+}
+
+.results-table .delta {
+  color: var(--coral);
+  font-weight: 760;
+}
+
+.results-table .multi {
+  color: var(--green);
+  font-weight: 760;
+}
+
+.results-table .avg {
+  background: rgba(47, 102, 193, 0.06);
+}
+
+.results-table thead .avg {
+  background: rgba(47, 102, 193, 0.12);
 }
 
 .media-panel {
@@ -714,5 +827,11 @@ code {
 
   .carousel-slide img {
     max-height: 56vh;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 7px 8px;
+    font-size: 12px;
   }
 }
