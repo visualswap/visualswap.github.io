@@ -835,3 +835,53 @@ code {
     font-size: 12px;
   }
 }
+
+.session-schedule {
+  margin: 1.25rem 0 1.75rem;
+}
+
+.session-invite {
+  margin: 0 0 0.9rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.session-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.session-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(120, 120, 140, 0.25);
+  border-left: 3px solid #4f46e5;
+  border-radius: 8px;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.session-card .session-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4f46e5;
+}
+
+.session-card .session-time {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.session-card .session-loc {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+@media (max-width: 600px) {
+  .session-cards { flex-direction: column; }
+}
